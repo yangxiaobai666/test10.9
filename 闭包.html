@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <ul id = "testUL">
+        <li>index = 0</li>
+        <li>index = 1</li>
+        <li>index = 2</li>
+        <li>index = 3</li>
+
+    </ul>
+
+    <!-- <input id = "myCar" list="w">
+    <datalist id = "w">
+        <option value="BWM"></option>
+        <option value="Ford"></option>
+        <option value="Volvo"></option>
+    </datalist> -->
+    <script>
+        // 什么是闭包？为什么要使用闭包？
+        // 1、函数内在嵌套函数；
+        // 2、内部的函数可以引用和访问外部的参数和变量；
+        // 3、参数和变量不会被垃圾回收机制回收；
+        // var nodes = document.getElementsByTagName("li");
+        // for (var i = 0 ; i<nodes.length ; i +=1){
+        //     nodes[i].onclick = (function(i){
+        //         return function(){
+        //             console.log(i);
+        //         }
+        //     })(i)
+        // }
+
+
+        // function say666(){
+        //     var num = 666;
+        //     var sayAlert = function(){
+        //         alert(num);
+        //     }
+        //     num ++;
+        //     return sayAlert;
+        // }
+        // var sayAlert = say666();
+        // sayAlert(); //结果是667
+
+        // 原型链继承的方式去写一个类和子类；
+        // function Person(name,age){
+        //     this.name=name;
+        //     this.age = age;
+        // }
+        // Person.prototype.study = function(){
+        //     return("学习") ;
+        // }
+        // // var p1 = new Person("张三","15");
+        // // p1.study();
+        // function Student(class_,name,age){
+        //     this.class_ = class_;
+        //     this.name = name;
+        //     this.age = age;
+        // }
+        // Student.prototype = new Person();
+        // // Student.prototype这个方法中既有他刚刚写入的方法，同时也有person的方法；
+        // var s1 = new Student("二班","你好",12);
+        // console.log(s1.name,s1.age,s1.class_,s1.study())
+
+
+
+        // 编写一个方法，求一个字符串的字节长度；假设：一个英文字符占用一个字节，一个中文字符占用两个字节；
+        // function num(str){
+        //     var num1 = str.length;
+        //     var num2 = 0;
+        //     for(var i = 0 ; i < str.length ; i++){
+        //         if(str.charCodeAt(i) >=10000){
+        //             // if语句的判断是想知道我们的str里面有没有汉字，如果有汉字，我们就把num2++，在str的length的基础上加1；这样就知道我们的字节了；
+        //             num2 ++;
+        //         }
+        //     }
+
+
+        // JS面向对象的几种方法；
+        // 1、对象的字面量；
+        // var obj = {};
+        // // 2、创建实例化对象
+        // var obj = new Object();
+        // // 3、构造函数模式；
+        // function fn(){
+
+        // }
+        // new fn(); 
+        // // 4、工厂模式：用一个函数，通过传递参数返回对象；这种方法已经被淘汰了
+        // function fn(params){
+        //     var obj = new Object();
+        //     obj.params = params;
+        //     return obj;
+        // }
+        // fn(params);
+        // // 5、原型模式；
+        // function clock(hour){
+
+        // }
+        // fn.prototype.hour = 0;
+        // new clock();
+
+        //封装jsonp 
+        // function jsonp(url,callback){
+        //     var callback = callback ? callback :"callback";
+        //     var cbName = "cb" + ("" + Math.random()).replace(/^0\./,"");
+        //     var promise = new Promise(function(resolved,rejected){
+        //         window[cbName] = function(res){
+        //             resolved(res);
+        //         }
+        //     })
+        //     var callbackName = `${callback}=${cbName}`;
+        //     url += "&" + callbackName;            
+        //     var script = document.createElement("script");
+        //     script.src = url;
+        //     script.onload = function(){
+        //         remove.this();
+        //     }
+        //     document.body.appendChild(script);
+        //     return promise;
+        // }
+
+        // 用js代码简单介绍自己；
+        // function Person(name,experience,skill){
+        //     this.name  = "杨雨";
+        //     this.experience = "我有如下经历";
+        //     this.skill = "技能";
+        // }
+        // Person.prototype.show = function(){
+        //     console.log("我是" + this.name + ";我有如下经历" + this.experience + ";我的技能是" + this.skill); 
+        // }
+        // var myself = new Person();
+        // myself.show(); 
+
+        // ES6let定义可以实现闭包；
+        // for(let i = 0 ; i<10 ; i ++){
+        //     // console.log(i)
+        //     setTimeout( function fn(){ 
+        //         console.log(i)
+        //     },1000)
+        // }
+
+        // 解构赋值 
+        // var [a,b,c,d,e,r] = [1,2,3,4,5,6]
+        // console.log(a,b,c,d,e,r)
+        
+
+        // ES6的箭头函数；所有的箭头函数都不支持自动换行；
+        // 方法1、不带大括号写法，他有自动返回值不需要写return，但是不接受换行，不能在将左边的值和箭头函数的箭头放在两行写
+        // var fn = (a,b) =>
+        // a+b;
+        // console.log( fn(1,2))
+
+        // 方法2、带大括号的写法；带大括号必须要return，他是没有自动返回的；
+        // var fn = (a,d)=>{
+        //     return a+d;
+        // }
+        // console.log(fn(3,5))
+
+        // this 指向问题； 
+        // var oUl = document.getElementById("testUL");
+        // var oLi = oUl.children;
+        // // console.log(oLi)
+        // for (let i = 0 ; i < oLi.length ; i ++){  
+        // oLi[i].onclick =()=>{
+        //         // console.log(this)    
+        //         setTimeout(function(){
+        //             console.log(this)
+        //         },10)
+        //     }
+        // }
+
+        // Symbol()他是一个字典量；表示的是独一无二的值； 
+        // let firstName = Symbol();
+        // let person = {};
+        // person[firstName] = "nihao";
+        // console.log(person[firstName])
+
+        // set 中的add方法
+        // add就相当于是数组中的push 向对象中添加内容；
+        // var set = new Set();
+        // set.add("杨雨");
+        // set.add("16");
+        // set.add("nihao");
+        // console.log(set) // 结果是： {"杨雨", "16", "nihao"}
+        // console.log(Array.from(set));//结果是：["杨雨", "16", "nihao"]Array.from将对象转换成数组；
+
+        // es6新方法  set 去重；
+        // var arr = [1,22,2,33,3,4,4,4,45,6,77,7,8,8,9,9]
+        // arr = Array.from(new Set(arr));
+        // console.log(arr)
+
+        // ES6中的map
+        // var set = new Set()
+        var map = new Map()
+        map.set("name","杨雨");
+        map.set("age","12");
+        console.log(map)
+
+        // for of 方法遍历 取出value值的方法；
+        for (let value of map.values()){
+            console.log(value)
+        }
+
+        // 取出key值的方法；
+        for (let key of map.keys()){
+            console.log(key)
+        }
+        
+
+       
+
+
+
+
+
+
+
+        
+
+        
+
+        
+        
+
+    
+    
+    </script>
+</body>
+</html>

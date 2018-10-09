@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 要求写一个正则，第一个必须是字母，后面可以是数字字母下划线，总长度为5-20
+        function panduan(str){
+             var reg = /^[a-z]{1}\w{5,20}$/ig;
+             var result = str.search(reg)
+             return result;
+        }
+        console.log(panduan ("a3324") )
+       
+        
+    
+    
+    
+    
+    
+    </script>
+</body>
+</html>

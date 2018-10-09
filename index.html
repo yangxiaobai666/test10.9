@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    //     // 编写一个方法去掉数组的重复元素；
+    // 方法1 遍历数组的方法；
+    //     function unique1(array){
+    //         var n = [];
+    //         for(var i = 0 ; i<array.length ; i++){
+    //             if(n.indexOf(array[i]) == -1){
+    //                 n.push(array[i]);
+    //             }
+    //         } 
+    //         return n;
+    //     }
+   
+    // //    因为index Of 是es5的新方法，IE8及以下浏览器并不支持，所以我们需要判断一下可以不用indexOf方法；
+    // if(!Array.prototype.indexOf){
+    //     Array.prototype.indexOf = function(item){
+    //         var result = -1,a_item = null;
+    //         if(this.length ==0 ){
+    //             return result;
+    //         }
+    //         for (var i = 0; i < this.length; i++){
+    //             a_item = this[i];
+    //             if(a_item === item){
+    //                 result = i;
+    //                 break;
+    //             }
+    //         }
+    //         return result;
+    //     }
+    // }
+    //     console.log(unique1([1,1,23,3,3,5,54,4,5,5]))
+
+    // 方法2 对象键值对法；
+    // 这个方法速度最快，占空间最多
+    // function unique1(array){
+    //     var n = {} , r = [],val,type;
+    //     for (var i = 0 ; i < array.length ; i ++){
+    //         val = array[i];
+    //         if(!n[val]){
+    //             //如果没有这个key 值；；
+    //             n[val] = n;//等于谁都无所谓的这里除了null还有0
+    //             r.push(val)
+    //         }
+    //     }
+    //     return r
+    // }
+    // console.log(unique1([1,"a","a",3,3,5,54,4,5,5]))
+
+    // function unique1(array){
+    //     var n = {},r = [],val,type;
+    //     for (var i = 0 ; i<array.length ; i++){
+    //         val = array[i];
+    //         type = typeof val;
+    //         // console.log(type)
+    //         if(!n[val]){             
+    //             n[val] = [type];
+    //             console.log(n[val])
+    //             r.push(val);
+    //             console.log(r)
+    //         }else if(n[val].indexOf(type) <0){
+    //             n[val].push(type);     
+    //             r.push(val);
+    //             // console.log(r)
+    //         }
+    //     }
+    //     return r; 
+    // }
+    // console.log(unique1([1,1,23,3,3,5,54,4,5,5,"1","1"]))
+
+    // 方法3 数组下标判断法；
+    // function unique1(array){
+    //     var n = [array[0]];//先把数组中的第一项放入到新的数组中；
+    //     for (var i = 1 ; i<array.length ; i++){
+    //         if(array.indexOf(array[i]) == i){
+    //             n.push(array[i]);
+    //         }
+    //     }
+    //     return n;
+    // }
+    // console.log(unique1([1,1,23,3,3,5,54,4,5,5]))
+
+    // //方法4 排序后相邻去除法；
+    // function unique1(array){
+    //     array.sort();
+    //     // console.log( array.sort())
+    //     // 排序方法，用于对数组进行排序；选出最大值放在最后
+    //     var re = [array[0]];
+    //     for(var i = 1 ; i < array.length ; i ++){
+    //         if(array[i] !==re[re.length - 1]){
+    //             // re[re.length - 1]遍历出数组的每一项，如果re[re.length - 1]中没有array[i],遍历出来的项，我们就把结果push到re数组中；
+    //             re.push(array[i]);
+    //         }
+    //     }
+    //     return re
+    // }
+    // console.log(unique1([1,1,23,3,3,5,54,4,5,5]))
+
+
+    // 方法5 优化遍历数组法  (无法实现)
+    // function unique1(array){
+    //     var r = [];
+    //     for (var i = 0 ; i<array.length ; i ++){
+    //         for (var j = i + 1 ; j < array.length  ; j ++){
+    //             if(array[i] === array[j]){
+    //                 j = ++i;
+    //                 r.push(array[i]);
+    //             }
+    //         }              
+    //     }
+    //     return r;
+    // }
+    // console.log(unique1([1,1,23,3,3,5,54,4,5,5]))
+
+
+
+    // 请使用JavaScript写出数组快速排序代码；(无法实现)
+    // function quiktSort(arr){
+    //     var left = [];right = [];
+    //     if(arr.length < 1){
+    //         return arr;
+    //     }
+    //     var index = Math.floor(arr.length/2);
+    //     var point = arr.splice(index,1);
+    //     for (var i = 0; i<arr.length ; i ++){
+    //         if(arr[i]<point){
+    //             left.push(arr[i]);
+    //         }else{
+    //             right.push(arr[i]);
+    //         }
+    //     }
+    //     return quiktSort(left).concat(point,quiktSort(right));
+    // }
+    // console.log(quiktSort([1,1,23,3,3,5,54,4,5,5]))
+
+
+
+
+
+
+    
+    
+    
+    
+    </script>
+</body>
+</html>
